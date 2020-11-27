@@ -11,7 +11,10 @@
 @import 'components/botones';
 
 // LAYOUT
+@import 'layouts/header';
+@import 'layouts/grids';
+@import 'layouts/main';
+@import 'layouts/body';
 
-
-// LAYOUT
+// PAGES
 @import 'pages/index';
