@@ -1,0 +1,20 @@
+mixin pictureCompleto(nombre,alter,descripcion,minM=0,maxM=767,minI=768,maxI=900,minD=1200,maxD=none)
+    picture.centro__img
+        if descripcion!= null 
+            each valor in descripcion
+                case valor
+                    when 'm'
+                        source(srcset='/assets/img/smartphone/'+ nombre +'.png 1x,/assets/img/smartphone/'+ nombre +'@2x.png 2x,img/smartphone/'+ nombre +'@3x.png 3x' media='(min-width:' + minM + 'px) and (max-width:' + maxM + 'px)')
+                    when 'i'
+                        source(srcset='img/tablet/'+ nombre +'.png 1x,img/tablet/'+ nombre +'@2x.png 2x' media='(min-width:' + minI + 'px) and (max-width:' + maxI + 'px)')
+                    when 'd'
+                        source(srcset='/assets/img/desktop/'+ nombre +'.png 1x,/assets/img/desktop/'+ nombre +'@2x.png 2x' media='(min-width:' + minD + 'px) and (max-width:' + maxD ')')
+                    default 
+                        source(srcset='/assets/img/smartphone/'+ nombre +'.png 1x,/assets/img/smartphone/'+ nombre +'@2x.png 2x,/assets/img/smartphone/'+ nombre +'@3x.png 3x' media='(min-width:' + minM + 'px) and (max-width:' + maxM + 'px)')
+                        source(srcset='/assets/img/tablet/'+ nombre +'.png 1x,/assets/img/tablet/'+ nombre +'@2x.png 2x' media='(min-width:' + minI + 'px) and (max-width:' + maxI + 'px)')
+                        source(srcset='/assets/img/desktop/'+ nombre +'.png 1x,/assets/img/desktop/'+ nombre +'@2x.png 2x' media='(min-width:' + minD + 'px) and (max-width:' + maxD ')')
+        else                  
+            source(srcset='/assets/img/smartphone/'+ nombre +'.png 1x,/assets/img/smartphone/'+ nombre +'@2x.png 2x,/assets/img/smartphone/'+ nombre +'@3x.png 3x' media='(min-width:' + minM + 'px) and (max-width:' + maxM + 'px)')
+            ource(srcset='/assets/img/tablet/'+ nombre +'.png 1x,/assets/img/tablet/'+ nombre +'@2x.png 2x' media='(min-width:' + minI + 'px) and (max-width:' + maxI + 'px)')
+            source(srcset='/assets/img/desktop/'+ nombre +'.png 1x,/assets/img/desktop/'+ nombre +'@2x.png 2x' media='(min-width:' + minD + 'px) and (max-width:' + maxD ')')
+        img(src='/assets/img/desktop/'+ nombre +'.png', alt=alter).
